@@ -5,11 +5,6 @@
 
 -----
 
-## Table of Contents
-
-- [Installation](#installation)
-- [License](#license)
-
 ## Installation
 
 Mac or Linux (inside `$HOME` or another directory of your choice)
