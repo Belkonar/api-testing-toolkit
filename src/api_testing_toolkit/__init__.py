@@ -46,14 +46,20 @@ def display_response(response: Response, headers=False):
     :param headers: Whether to display the headers
     :return: None
     """
+
+    data_label = None
+
+    if headers:
+        data_label = 'Data'
+
     if not isinstance(response, Response):
         print('Not a Response object')
         return
 
     if 'json' in response.headers['content-type']:
-        display(response.json(), 'Data')
+        display(response.json(), data_label)
     else:
-        display(response.text, 'Data')
+        display(response.text, data_label)
 
     if headers:
         display(response.headers, 'Headers')
