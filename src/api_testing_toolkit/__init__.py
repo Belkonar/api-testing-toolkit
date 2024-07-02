@@ -3,6 +3,7 @@ This module contains the main functions for the API Testing Toolkit
 
 Functions:
     display(data) -> None
+    display_response(response: Response, headers=False) -> None
     load_env(name: str) -> object
 """
 
@@ -38,7 +39,9 @@ d = display  # alias for display
 
 def display_response(response: Response, headers=False):
     """
-    Helper function for displaying the response of JSON or utf-8 requests.
+    Helper function for displaying the response of JSON or text requests.
+
+    Will parse JSON only if the content-type is json.
     :param response: The response object
     :param headers: Whether to display the headers
     :return: None
