@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HATCH_INDEX_AUTH: ${{ secrets.HATCH_INDEX_AUTH }}
+      HATCH_INDEX_USER: __token__
     steps:
     - uses: actions/checkout@v4
     - name: Install Hatch
