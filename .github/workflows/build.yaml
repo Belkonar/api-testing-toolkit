@@ -5,6 +5,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HATCH_INDEX_AUTH: ${{ secrets.HATCH_INDEX_AUTH }}
     steps:
     - uses: actions/checkout@v4
     - name: Install Hatch
@@ -13,4 +15,5 @@ jobs:
       run: |
         hatch version "${{ github.event.release.tag_name }}"
         hatch build
+        hatch publish
         
