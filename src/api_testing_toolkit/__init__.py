@@ -24,7 +24,7 @@ def display(data, label=None):
     if isinstance(data, CaseInsensitiveDict):
         data = dict(data)  # just reset it
 
-    if isinstance(data, dict):
+    if isinstance(data, dict) or isinstance(data, list):
         data = JSON(data, expanded=True)
 
     if label:
