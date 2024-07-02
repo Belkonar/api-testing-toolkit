@@ -38,7 +38,7 @@ d = display  # alias for display
 
 def display_response(response: Response, headers=False):
     """
-    Helper function for displaying the response of JSON requests.
+    Helper function for displaying the response of JSON or utf-8 requests.
     :param response: The response object
     :param headers: Whether to display the headers
     :return: None
@@ -46,7 +46,10 @@ def display_response(response: Response, headers=False):
     if not isinstance(response, Response):
         print('Not a Response object')
 
-    display(response.json(), 'Data')
+    if 'json' in response.headers['content-type']:
+        display(response.json(), 'Data')
+    else:
+        display(response.text, 'Data')
 
     if headers:
         display(response.headers, 'Headers')
