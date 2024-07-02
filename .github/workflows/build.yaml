@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Go
+    - name: Install Hatch
+      uses: pypa/hatch@install
+    - name: Do a build
       run: |
-        echo ${{ github.event.release.tag_name }}
+        hatch version "${{ github.event.release.tag_name }}"
+        hatch build
         
