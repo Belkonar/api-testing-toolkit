@@ -17,6 +17,20 @@ pip install api-testing-toolkit
 
 Windows TBD
 
+## Development
+
+Clone this repository and do this (for mac or linux, nothing for windows yet).
+
+```sh
+python3 -m venv .env
+source .env/bin/activate
+pip install --upgrade pip
+pip install --editable .
+```
+
+Set your IDE to that .env venv and use the same to pull up jupyter in your target directory. If you change the code,
+you'll need to reset the jupyter kernel.
+
 ## Usage
 
 This package is meant to be used with Jupyter Lab. Installing this package will also
