@@ -48,6 +48,7 @@ def display_response(response: Response, headers=False):
     """
     if not isinstance(response, Response):
         print('Not a Response object')
+        return
 
     if 'json' in response.headers['content-type']:
         display(response.json(), 'Data')
