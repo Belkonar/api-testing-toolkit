@@ -36,7 +36,7 @@ def display(data, label=None):
 d = display  # alias for display
 
 
-def display_request(response: Response, headers=False):
+def display_response(response: Response, headers=False):
     """
     Helper function for displaying the response of JSON requests.
     :param response: The response object
@@ -52,7 +52,7 @@ def display_request(response: Response, headers=False):
         display(response.headers, 'Headers')
 
 
-dr = display_request  # alias for display_request
+dr = display_response  # alias for display_request
 
 
 def load_env(name: str) -> object:
