@@ -11,6 +11,7 @@ from requests.structures import CaseInsensitiveDict
 from requests.models import Response
 from IPython.display import JSON, display as ipy_display
 import json
+from pathlib import Path
 
 
 def display(data, label=None):
@@ -81,3 +82,17 @@ def load_env(name: str) -> object:
     except FileNotFoundError:
         print('no env found, returning nothing')
         return {}
+
+
+def save_env(data: object, name: str):
+    """
+    Save environment variables to the env folder
+    :param data: The data to save to the environment
+    :param name: The name of the JSON document to save
+    :return: The JSON object
+    """
+
+    Path('env').mkdir(exist_ok=True)
+
+    with open('env/{}.json'.format(name), 'w') as f:
+        json.dump(data, f, indent=2)
